@@ -1,6 +1,7 @@
 import datetime
 import csv
 from requests_html import HTMLSession
+import re
 
 s = HTMLSession()
 asins = []
@@ -23,4 +24,4 @@ for asin in asins:
     asin = asin
     date = datetime.datetime.today()
     
-    print(title, price, date)
+    print(title,re.sub(r"(^\#.+\#)", ' ', price), date)
